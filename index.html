@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html id="parallax">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <h1 id="title">Graphics Cards</h1>
+        <div id="gpu-list"></div>
+        <div id="form-container">
+            <div id="gpu-details" class="gpu-form">
+                <h1 id="gpu-details-title">Details</h1>
+                <span id="gpu-id" class="hidden"></span>
+                <p>
+                    <label for="txt-name">Name: </label>
+                    <input id="txt-name">
+                </p>
+                <p>
+                    <label for="txt-gpu">GPU: </label>
+                    <input id="txt-gpu">
+                </p>
+                <p>
+                    <label for="txt-clock">Clock Speeds(MHz): </label>
+                    <input id="txt-clock">
+                </p>
+                <p>
+                    <label for="txt-memory">Memory(gb): </label>
+                    <input id="txt-memory">
+                </p>
+                <p>
+                    <label for="txt-memtype">Memory Type: </label>
+                    <input id="txt-memtype">
+                </p>
+                <p>
+                    <label for="txt-watts">Wattage(W): </label>
+                    <input id="txt-watts">
+                </p>
+                <button id="btn-edit-gpu">Edit GPU</button>
+                <button id="btn-delete-gpu">Delete GPU</button>
+            </div>
+
+            <div id="add-gpu" class="gpu-form">
+                <h1>Add GPU</h2>
+                <p>
+                    <label for="txt-add-name">Name: </label>
+                    <input id="txt-add-name">
+                </p>
+                <p>
+                    <label for="txt-add-gpu">GPU: </label>
+                    <input id="txt-add-gpu">
+                </p>
+                <p>
+                    <label for="txt-add-clock">Clock Speeds(MHz): </label>
+                    <input id="txt-add-clock">
+                </p>
+                <p>
+                    <label for="txt-add-memory">Memory(gb): </label>
+                    <input id="txt-add-memory">
+                </p>
+                <p>
+                    <label for="txt-add-memtype">Memory Type: </label>
+                    <input id="txt-add-memtype">
+                </p>
+                <p>
+                    <label for="txt-add-watts">Wattage(W): </label>
+                    <input id="txt-add-watts">
+                </p>
+                <button id="btn-add-gpu">Add GPU</button>
+            </div>
+        </div>
+    </body>
+</html>
