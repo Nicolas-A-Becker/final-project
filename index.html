@@ -7,8 +7,12 @@
     <body>
         <h1 id="title">Graphics Cards</h1>
         <div id="gpu-list"></div>
+        <div id="buttons">
+            <button id="btn-show-details">Toggle Edit Form</button>
+            <button id="btn-show-add">Toggle Add Form</button>
+        </div>
         <div id="form-container">
-            <div id="gpu-details" class="gpu-form">
+            <div id="gpu-details" class="gpu-form hidden">
                 <h1 id="gpu-details-title">Details</h1>
                 <span id="gpu-id" class="hidden"></span>
                 <p>
@@ -39,7 +43,7 @@
                 <button id="btn-delete-gpu">Delete GPU</button>
             </div>
 
-            <div id="add-gpu" class="gpu-form">
+            <div id="add-gpu" class="gpu-form hidden">
                 <h1>Add GPU</h2>
                 <p>
                     <label for="txt-add-name">Name: </label>

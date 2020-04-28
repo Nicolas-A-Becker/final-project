@@ -51,6 +51,74 @@ async function createGpu(gpu, res){
     res.send(gpu);
 }
 
+app.post('/api/gpus', (req,res)=>{
+    /*const result = validateGpu(req.body);
+
+    if(result.error){
+        res.status(400).send(result.error.details[0].message);
+        return;
+    }*/
+
+    console.log("GPU is validated");
+    const gpu = new GPU({
+        name:req.body.name,
+        gpu:req.body.gpu,
+        clock:[parseInt(req.body.clock[0]),parseInt(req.body.clock[1])],
+        memory:parseInt(req.body.memory),
+        memtype:req.body.memtype,
+        watts:parseInt(req.body.watts)
+    });
+    console.log("GPU is created");
+
+    createGpu(gpu, res);
+});
+
+function validateGpu(gpu){
+    const schema = {
+        name:Joi.string().min(3).required(),
+        gpu:Joi.string().min(3).required(),
+        memtype:Joi.string().min(3).required()
+    };
+
+    return Joi.validate(gpu, schema);
+}
+
+async function removeGpu(res, id){
+    const gpu = await GPU.findByIdAndRemove(id);
+    res.send(gpu);
+}
+
+app.delete('/api/gpus/:id', (req,res)=>{
+    removeGpu(res, req.params.id);
+});
+
+async function updateGpu(res, id, name, gpu, clock, memory, memtype, watts){
+    const result = await GPU.updateOne({_id:id},{
+        $set:{
+            name:name,
+            gpu:gpu,
+            clock:[parseInt(clock[0]),parseInt(clock[1])],
+            memory:parseInt(memory),
+            memtype:memtype,
+            watts:parseInt(watts)
+        }
+    });
+    console.log("After updateGPU result created");
+
+    res.send(result);
+}
+
+app.put('/api/gpus/:id', (req,res)=>{
+    /*const result = validateGpu(req.body);
+
+    if(result.error){
+        res.status(400).send(result.error.details[0].message);
+        return;
+    }*/
+
+    updateGpu(res, req.params.id, req.body.name, req.body.gpu, req.body.clock, req.body.memory, req.body.memtype, req.body.watts);
+});
+
 app.listen(3000, ()=>{
     console.log("listening on port 3000");
 })

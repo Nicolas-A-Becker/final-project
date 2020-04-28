@@ -52,7 +52,11 @@ body{
 }
 
 .gpu{
+    position: relative;
+    display: inline-block;
+
     width: 30%;
+    height: 450px;
     margin: 10px;
     background: lightgrey;
     
@@ -66,12 +70,66 @@ body{
     color: black;
 }
 
+.gpu img{
+    display: block;
+    margin: 15px;
+    margin-left: 30px;
+}
+
+.gpu h3{
+    font-size: xx-large;
+}
+
+.dropdown{
+    display: none;
+
+    position: relative;
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkred;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+.gpu:hover .dropdown{
+    display: block;
+    z-index: 1;
+    font-size: medium;
+    padding: none;
+}
+
+.gpu:hover div{
+    display: none;
+}
+
+#buttons{
+    margin: 25px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#buttons button{
+    width: 100px;
+    height: 75px;
+    background-color: grey;
+    color: black;
+
+    border: solid 2px darkgrey;
+    border-radius: 5px;
+
+    font-size: large;
+
+    margin-bottom: 15px;
+}
+
 #form-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .gpu-form{
+    width: 40%;
     padding-bottom: 20px;
     margin-bottom: 20px;
     background: lightgrey;
@@ -80,4 +138,8 @@ body{
     border-width: 2px;
     border-color: darkred;
     border-radius: 2px;
+}
+
+.gpu-form label{
+    display: block;
 }
